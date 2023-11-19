@@ -19,3 +19,16 @@ def details(request, id):
         'mymember':mymember,
     }
     return HttpResponse(template.render(context,request))
+def main(request):
+    template=loader.get_template('main.html')
+    return HttpResponse(template.render())
+
+#test view
+def testing(request):
+#   mymembers=Member.objects.all().values()
+  mydata = Member.objects.all()
+  template = loader.get_template('template.html')
+  context = {
+    'mymembers': mydata,
+  }
+  return HttpResponse(template.render(context, request)) 
